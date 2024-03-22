@@ -1,0 +1,31 @@
+<div class="table-responsive">
+<table class="table table-bordered" *ngIf="stddata.length>0; else nostddada">
+<thead>
+    <tr>
+        <th>Sr No</th>
+        <th>fname</th>
+        <th>lname</th>
+        <th>gmail</th>
+        <th>contact</th>
+        <th>submit</th>
+        <th>delete</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let std of stddata;let i=index">
+        <td>{{1+i}}</td>
+        <td>{{std.fname}}</td>
+        <td>{{std.lname}}</td>
+        <td>{{std.gmail}}</td>
+        <td>{{std.contact}}</td>
+        <td><button class="btn btn-primary" type="button" (click)="onedit(std)">Edit</button></td>
+        <td><button class="btn btn-danger" type="button" (click)="onclick(std)" >Delete</button></td>
+    </tr>
+</tbody>
+</table>
+<ng-template #nostddada>
+    <strong><p class="alert alert-success">
+no std data is available
+    </p></strong>
+</ng-template>
+</div>
