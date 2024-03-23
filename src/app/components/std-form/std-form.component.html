@@ -1,21 +1,23 @@
-<form [formGroup]="formsubmit" (ngSubmit)="onsubmitform()">
+<form [formGroup]="formsubmit" (ngSubmit)="onsubmitform()" class="font-weight-bold bg-warning">
     <div class="form-group">
-        <label for="fname">fname</label>
+        <label for="fname" class="mx-2">fname</label>
         <input type="text" class="form-control" formControlName="fname" >
     </div>
     <!-- <p>{{std |json}}</p> -->
     <div class="form-group">
-        <label for="lname">lname</label>
+        <label for="lname" class="mx-2">lname</label>
         <input type="text" class="form-control" formControlName="lname" >
     </div>
     <div class="form-group">
-        <label for="gmail">gmail</label>
+        <label for="gmail" class="mx-2">gmail</label>
         <input type="text" class="form-control" formControlName="gmail" >
     </div>
-    <div class="form-group">
-        <label for="contact">contact</label>
+    <div class="form-group" >
+        <label for="contact" class="mx-2">contact</label>
         <input type="text" class="form-control" formControlName="contact" >
     </div>
-    <button class="btn btn-primary" *ngIf="isupdate" type="submit">Add</button>
-    <button class="btn btn-success" *ngIf="!isupdate" (click)="onupdate()" type="button">update</button>
+    <div class="text-center">
+    <button class="btn btn-primary m-2" *ngIf="isupdate" type="submit">Add</button>
+    <button class="btn btn-success m-4" *ngIf="!isupdate" (click)="onupdate()" type="button">update</button>
+</div>
 </form>

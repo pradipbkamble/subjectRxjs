@@ -1,7 +1,7 @@
 <div class="table-responsive">
-<table class="table table-bordered" *ngIf="stddata.length>0; else nostddada">
+<table class="table table-bordered " *ngIf="stddata.length>0; else nostddada">
 <thead>
-    <tr>
+    <tr class="bg-primary text-white">
         <th>Sr No</th>
         <th>fname</th>
         <th>lname</th>
@@ -12,14 +12,14 @@
     </tr>
 </thead>
 <tbody>
-    <tr *ngFor="let std of stddata;let i=index">
+    <tr *ngFor="let std of stddata;let i=index" >
         <td>{{1+i}}</td>
         <td>{{std.fname}}</td>
         <td>{{std.lname}}</td>
         <td>{{std.gmail}}</td>
         <td>{{std.contact}}</td>
-        <td><button class="btn btn-primary" type="button" (click)="onedit(std)">Edit</button></td>
-        <td><button class="btn btn-danger" type="button" (click)="onclick(std)" >Delete</button></td>
+        <td><button class="btn btn-info" type="button" (click)="onedit(std)">Edit</button></td>
+        <td><button class="btn btn-danger" type="button" (click)="ondelete(std)" >Delete</button></td>
     </tr>
 </tbody>
 </table>

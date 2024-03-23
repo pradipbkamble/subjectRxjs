@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { timeout } from 'rxjs';
 import { Istd } from 'src/app/interface/stdinterface';
+import { SnackbarService } from 'src/app/scrvice/snackbar.service';
 import { StdService } from 'src/app/scrvice/std.service';
 import { UuidService } from 'src/app/scrvice/uuid.service';
 
@@ -13,8 +15,9 @@ export class StdFormComponent implements OnInit {
 formsubmit!:FormGroup;
 edtstd!:Istd
 std!:any
+
 isupdate:boolean=false
-  constructor(private _std:StdService, private _uuid:UuidService) { }
+  constructor(private _std:StdService, private _uuid:UuidService, private _snackbar:SnackbarService) { }
 
   ngOnInit(): void {
     this.stdform()
@@ -46,7 +49,7 @@ if(this.formsubmit.valid){
   console.log(objstd);
   this._std.fetchadd(objstd)
   this.formsubmit.reset()
-
+this._snackbar.opensnackbar(`std data is submited !!!`,"close")
   
 }
   }
@@ -54,6 +57,7 @@ if(this.formsubmit.valid){
 let updateobj={...this.formsubmit.value,id:this.edtstd.id}
 this.isupdate=true
 this.formsubmit.reset()
-this._std.formupdate(updateobj)
+let update=this._std.formupdate(updateobj)
+this._snackbar.opensnackbar(`std data is updated !!!`, 'close')
   }
 }
